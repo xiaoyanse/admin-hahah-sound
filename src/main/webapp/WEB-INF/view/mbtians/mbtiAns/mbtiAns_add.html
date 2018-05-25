@@ -1,0 +1,48 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="评测结果" underline="true"/>
+                            <#input id="profession" name="职业" underline="true"/>
+                            <#input id="step1" name="基本分析报告" underline="true"/>
+                            <#input id="features" name="特征短评" underline="true"/>
+                            <#input id="describe" name="基本描述" underline="true"/>
+                            <#input id="blindSpot" name="盲点，误区" underline="true"/>
+                            <#input id="inferiority1" name="工作中的劣势" underline="true"/>
+                            <#input id="step2" name="职业发展分析报告" underline="true"/>
+                            <#input id="inferiority2" name="工作中的劣势" underline="true"/>
+                            <#input id="postStyle" name="岗位的特性" underline="true"/>
+                            <#input id="postSuitable" name="适合的岗位"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="pdp" name="个人发展建议" underline="true"/>
+                            <#input id="step3" name="工作环境分析报告" underline="true"/>
+                            <#input id="socialityOg" name="组织的社会性" underline="true"/>
+                            <#input id="structureDetail" name="组织的结构和细节关注度" underline="true"/>
+                            <#input id="opennessImagination" name="组织的开放性和想象力" underline="true"/>
+                            <#input id="cooperativeHarmonious" name="对组织的合作性和和谐型" underline="true"/>
+                            <#input id="sociality" name="对组织社会性的要求" underline="true"/>
+                            <#input id="details" name="对组织及对细节的关注度要求高" underline="true"/>
+                            <#input id="openness" name="对组织的开放性和想象力要求" underline="true"/>
+                            <#input id="cooperative" name="对组织的合作性和和谐型要求" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="MbtiAnsInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="MbtiAnsInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/mbtians/mbtiAns/mbtiAns_info.js"></script>
+@}

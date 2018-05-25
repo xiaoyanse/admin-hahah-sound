@@ -1,0 +1,410 @@
+@layout("/DatiManage/stuDati/datiindex.html"){
+<div class="main">
+	<p align="center">
+		<b><br> 抑郁自评量表测试(SDS)</b>
+	</p>
+	<hr>
+
+	<form name="see">
+		<div align="left">
+				<table width="100%" height="346" border="0" cellpadding="10"
+					cellspacing="3">
+					<tbody id="con">
+					</tbody>
+				</table>
+
+			<div>
+				<input onclick="processForm(this.form)" type="button"
+					value="点此看测验结果" class="sbt"><br>
+				  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  				<div id="testchart" style="width: 700px;height:500px"></div>
+  				  <blockquote>
+				    <p class="b-size">此图为MBTI四大变量的偏移图，由上图可得知测试者的结果类型；读表可得，测试者属于<strong id="mbtiresultid"></strong></p>
+				  </blockquote>
+				  
+				  <a href="http://localhost/mbtiAns/mbtiAns_result" style="float:right;color:#f98aaf" target="_blank">
+                        <i class="fa fa-tasks"></i> 点击查看分析报告
+                    </a>
+			</div>
+		</div>
+	</form>
+	<!-- http://localhost/mbtiTab/list -->
+	<script type="text/javascript">
+		window.onload = function() {
+			var request = new XMLHttpRequest();
+			request.open("GET", "http://localhost/mbtiTab/list");
+			request.send();
+
+			request.onreadystatechange = function() {
+				// body...
+				if (request.readyState === 4) {
+					if (request.status === 200) {
+						var data = request.responseText; //json字符串
+						var obj = JSON.parse(data)
+						//alert(getJsonObjLength(obj));
+						var constring="";
+						for ( var i = 0; i < getJsonObjLength(obj); i++) {
+							constring=constring+"<tr><td><p id=timu"+obj[i].id+">"
+									+ obj[i].timu
+									+ "</p><label class=\"opt\"><input type=\"radio\" checked  value=\"1\" name=timu"+obj[i].id+">"
+									+ obj[i].xuanxiang1
+									+ "<br></label><label class=\"opt\"><input type=\"radio\" value=\"2\" name=timu"+obj[i].id+">"
+									+ obj[i].xuanxiang2
+									+ "<br></label><br> </td></tr>";
+						}
+						
+						//constring=constring+
+						
+						
+						document.getElementById("con").innerHTML = constring;
+
+					} else {
+						
+						var flasestring=request.status;
+						document.getElementById("con").innerHTML = "<p>发生错误，错误代码为："+flasestring+"</p>";
+
+					}
+				}
+			}
+		}
+
+		function getJsonObjLength(jsonObj) {
+			var Length = 0;
+			for ( var item in jsonObj) {
+				Length++;
+			}
+			return Length;
+		}
+		
+
+		 function processForm(form) {
+		        //var xf = xf1 = 0;
+		        var ei = new Array(21);
+		        var sn = new Array(26);
+		        var tf = new Array(24);
+		        var jp = new Array(22);
+		       // var ee = new Array(99);
+		        
+
+		        if (form.timu1[0].checked ==1)jp[0]=1;
+		        if (form.timu1[1].checked ==1)jp[0]=0;
+		        if (form.timu2[0].checked ==1)sn[0]=1;
+		        if (form.timu2[1].checked ==1)sn[0]=0;
+		        if (form.timu3[0].checked ==1)ei[0]=1;
+		        if (form.timu3[1].checked ==1)ei[0]=0;
+		        if (form.timu4[0].checked ==1)jp[1]=1;
+		        if (form.timu4[1].checked ==1)jp[1]=0;
+		        if (form.timu5[0].checked ==1)sn[13]=0;
+		        if (form.timu5[1].checked ==1)sn[13]=1;
+		        if (form.timu6[0].checked ==1)tf[0]=0;
+		        if (form.timu6[1].checked ==1)tf[0]=1;
+		        if (form.timu7[0].checked ==1)ei[1]=1;
+		        if (form.timu7[1].checked ==1)ei[1]=0;
+		        if (form.timu8[0].checked ==1)jp[2]=0;
+		        if (form.timu8[1].checked ==1)jp[2]=1;
+		        if (form.timu9[0].checked ==1)sn[1]=1;
+		        if (form.timu9[1].checked ==1)sn[1]=0;
+		        if (form.timu10[0].checked ==1)ei[2]=1;
+		        if (form.timu10[1].checked ==1)ei[2]=0;
+		        if (form.timu11[0].checked ==1)sn[14]=0;
+		        if (form.timu11[1].checked ==1)sn[14]=1;
+		        if (form.timu12[0].checked ==1)jp[3]=1;
+		        if (form.timu12[1].checked ==1)jp[3]=0;
+		        if (form.timu13[0].checked ==1)ei[11]=0;
+		        if (form.timu13[1].checked ==1)ei[11]=1;
+		        if (form.timu14[0].checked ==1)jp[4]=1;
+		        if (form.timu14[1].checked ==1)jp[4]=0;
+		        if (form.timu15[0].checked ==1)tf[1]=0;
+		        if (form.timu15[1].checked ==1)tf[1]=1;
+		        if (form.timu16[0].checked ==1)ei[12]=0;
+		        if (form.timu16[1].checked ==1)ei[12]=1;
+		        if (form.timu17[0].checked ==1)jp[5]=0;
+		        if (form.timu17[1].checked ==1)jp[5]=1;
+		        if (form.timu18[0].checked ==1)sn[15]=0;
+		        if (form.timu18[1].checked ==1)sn[15]=1;
+		        if (form.timu19[0].checked ==1)ei[3]=1;
+		        if (form.timu19[1].checked ==1)ei[3]=0;
+		        if (form.timu20[0].checked ==1)jp[6]=1;
+		        if (form.timu20[1].checked ==1)jp[6]=0;
+		        if (form.timu21[0].checked ==1)tf[2]=0;
+		        if (form.timu21[1].checked ==1)tf[2]=1;
+		        if (form.timu22[0].checked ==1)sn[16]=0;
+		        if (form.timu22[1].checked ==1)sn[16]=1;
+		        if (form.timu23[0].checked ==1)ei[4]=1;
+		        if (form.timu23[1].checked ==1)ei[4]=0;
+		        if (form.timu24[0].checked ==1)jp[7]=0;
+		        if (form.timu24[1].checked ==1)jp[7]=1;
+		        if (form.timu25[0].checked ==1)sn[2]=1;
+		        if (form.timu25[1].checked ==1)sn[2]=0;
+		        if (form.timu26[0].checked ==1)ei[13]=0;
+		        if (form.timu26[1].checked ==1)ei[13]=1;
+		        if (form.timu27[0].checked ==1)sn[17]=0;
+		        if (form.timu27[1].checked ==1)sn[17]=1;
+		        if (form.timu28[0].checked ==1)jp[8]=1;
+		        if (form.timu28[1].checked ==1)jp[8]=0;
+		        if (form.timu29[0].checked ==1)tf[3]=0;
+		        if (form.timu29[1].checked ==1)tf[3]=1;
+		        if (form.timu30[0].checked ==1)sn[3]=1;
+		        if (form.timu30[1].checked ==1)sn[3]=0;
+		        if (form.timu31[0].checked ==1)tf[23]=1;
+		        if (form.timu31[1].checked ==1)tf[23]=0;
+		        if (form.timu32[0].checked ==1)ei[5]=1;
+		        if (form.timu32[1].checked ==1)ei[5]=0;
+		        if (form.timu33[0].checked ==1)tf[4]=1;
+		        if (form.timu33[1].checked ==1)tf[4]=0;
+		        if (form.timu34[0].checked ==1)sn[4]=1;
+		        if (form.timu34[1].checked ==1)sn[4]=0;
+		        if (form.timu35[0].checked ==1)tf[5]=1;
+		        if (form.timu35[1].checked ==1)tf[5]=0;
+		        if (form.timu36[0].checked ==1)jp[9]=1;
+		        if (form.timu36[1].checked ==1)jp[9]=0;
+		        if (form.timu37[0].checked ==1)tf[6]=0;
+		        if (form.timu37[1].checked ==1)tf[6]=1;
+		        if (form.timu38[0].checked ==1)ei[14]=0;
+		        if (form.timu38[1].checked ==1)ei[14]=1;
+		        if (form.timu39[0].checked ==1)sn[5]=1;
+		        if (form.timu39[1].checked ==1)sn[5]=0;
+		        if (form.timu40[0].checked ==1)tf[7]=0;
+		        if (form.timu40[1].checked ==1)tf[7]=1;
+		        if (form.timu41[0].checked ==1)jp[10]=1;
+		        if (form.timu41[1].checked ==1)jp[10]=0;
+		        if (form.timu42[0].checked ==1)ei[15]=0;
+		        if (form.timu42[1].checked ==1)ei[15]=1;
+		        if (form.timu43[0].checked ==1)tf[8]=1;
+		        if (form.timu43[1].checked ==1)tf[8]=0;
+		        if (form.timu44[0].checked ==1)sn[18]=0;
+		        if (form.timu44[1].checked ==1)sn[18]=1;
+		        if (form.timu45[0].checked ==1)tf[9]=1;
+		        if (form.timu45[1].checked ==1)tf[9]=0;
+		        if (form.timu46[0].checked ==1)sn[19]=0;
+		        if (form.timu46[1].checked ==1)sn[19]=1;
+		        if (form.timu47[0].checked ==1)tf[10]=1;
+		        if (form.timu47[1].checked ==1)tf[10]=0;
+		        if (form.timu48[0].checked ==1)sn[20]=0;
+		        if (form.timu48[1].checked ==1)sn[20]=1;
+		        if (form.timu49[0].checked ==1)tf[11]=1;
+		        if (form.timu49[1].checked ==1)tf[11]=0;
+		        if (form.timu50[0].checked ==1)sn[6]=1;
+		        if (form.timu50[1].checked ==1)sn[6]=0;
+		        if (form.timu51[0].checked ==1)tf[12]=0;
+		        if (form.timu51[1].checked ==1)tf[12]=1;
+		        if (form.timu52[0].checked ==1)sn[7]=1;
+		        if (form.timu52[1].checked ==1)sn[7]=0;
+		        if (form.timu53[0].checked ==1)tf[13]=0;
+		        if (form.timu53[1].checked ==1)tf[13]=1;
+		        if (form.timu54[0].checked ==1)sn[8]=1;
+		        if (form.timu54[1].checked ==1)sn[8]=0;
+		        if (form.timu55[0].checked ==1)jp[11]=0;
+		        if (form.timu55[1].checked ==1)jp[11]=1;
+		        if (form.timu56[0].checked ==1)tf[14]=1
+		        if (form.timu56[1].checked ==1)tf[14]=0;
+		        if (form.timu57[0].checked ==1)ei[16]=0;
+		        if (form.timu57[1].checked ==1)ei[16]=1;
+		        if (form.timu58[0].checked ==1)tf[15]=1;
+		        if (form.timu58[1].checked ==1)tf[15]=0;
+		        if (form.timu59[0].checked ==1)jp[12]=0;
+		        if (form.timu59[1].checked ==1)jp[12]=1;
+		        if (form.timu60[0].checked ==1)sn[9]=1;
+		        if (form.timu60[1].checked ==1)sn[9]=0;
+		        if (form.timu61[0].checked ==1)tf[16]=1;
+		        if (form.timu61[1].checked ==1)tf[16]=0;
+		        if (form.timu62[0].checked ==1)ei[6]=1;
+		        if (form.timu62[1].checked ==1)ei[6]=0;
+		        if (form.timu63[0].checked ==1)sn[10]=1;
+		        if (form.timu63[1].checked ==1)sn[10]=0;
+		        if (form.timu64[0].checked ==1)jp[13]=1;
+		        if (form.timu64[1].checked ==1)jp[13]=0;
+		        if (form.timu65[0].checked ==1)sn[25]=0;
+		        if (form.timu65[1].checked ==1)sn[25]=1;
+		        if (form.timu66[0].checked ==1)tf[17]=1;
+		        if (form.timu66[1].checked ==1)tf[17]=0;
+		        if (form.timu67[0].checked ==1)sn[21]=0;
+		        if (form.timu67[1].checked ==1)sn[21]=1;
+		        if (form.timu68[0].checked ==1)ei[17]=0;
+		        if (form.timu68[1].checked ==1)ei[17]=1;
+		        if (form.timu69[0].checked ==1)sn[22]=0;
+		        if (form.timu69[1].checked ==1)sn[22]=1;
+		        if (form.timu70[0].checked ==1)tf[18]=0;
+		        if (form.timu70[1].checked ==1)tf[18]=1;
+		        if (form.timu71[0].checked ==1)sn[23]=0;
+		        if (form.timu71[1].checked ==1)sn[23]=1;
+		        if (form.timu72[0].checked ==1)tf[19]=0;
+		        if (form.timu72[1].checked ==1)tf[19]=1;
+		        if (form.timu73[0].checked ==1)sn[11]=1;
+		        if (form.timu73[1].checked ==1)sn[11]=0;
+		        if (form.timu74[0].checked ==1)ei[7]=1;
+		        if (form.timu74[1].checked ==1)ei[7]=0;
+		        if (form.timu75[0].checked ==1)tf[20]=1;
+		        if (form.timu75[1].checked ==1)tf[20]=0;
+		        if (form.timu76[0].checked ==1)jp[14]=1;
+		        if (form.timu76[1].checked ==1)jp[14]=0;
+		        if (form.timu77[0].checked ==1)ei[18]=0;
+		        if (form.timu77[1].checked ==1)ei[18]=1;
+		        if (form.timu78[0].checked ==1)jp[15]=0;
+		        if (form.timu78[1].checked ==1)jp[15]=1;
+		        if (form.timu79[0].checked ==1)ei[8]=1;
+		        if (form.timu79[1].checked ==1)ei[8]=0;
+		        if (form.timu80[0].checked ==1)jp[16]=0;
+		        if (form.timu80[1].checked ==1)jp[16]=1;
+		        if (form.timu81[0].checked ==1)ei[9]=1;
+		        if (form.timu81[1].checked ==1)ei[9]=0;
+		        if (form.timu82[0].checked ==1)sn[24]=0;
+		        if (form.timu82[1].checked ==1)sn[24]=1;
+		        if (form.timu83[0].checked ==1)ei[10]=1;
+		        if (form.timu83[1].checked ==1)ei[10]=0;
+		        if (form.timu84[0].checked ==1)jp[17]=0;
+		        if (form.timu84[1].checked ==1)jp[17]=1;
+		        if (form.timu85[0].checked ==1)ei[19]=0;
+		        if (form.timu85[1].checked ==1)ei[19]=1;
+		        if (form.timu86[0].checked ==1)jp[18]=1;
+		        if (form.timu86[1].checked ==1)jp[18]=0;
+		        if (form.timu87[0].checked ==1)tf[21]=1;
+		        if (form.timu87[1].checked ==1)tf[21]=0;
+		        if (form.timu88[0].checked ==1)jp[19]=0;
+		        if (form.timu88[1].checked ==1)jp[19]=0;
+		        if (form.timu89[0].checked ==1)tf[22]=0;
+		        if (form.timu89[1].checked ==1)tf[22]=1;
+		        if (form.timu90[0].checked ==1)jp[20]=0;
+		        if (form.timu90[1].checked ==1)jp[20]=1;
+		        if (form.timu91[0].checked ==1)ei[20]=0;
+		        if (form.timu91[1].checked ==1)ei[20]=1;
+		        if (form.timu92[0].checked ==1)sn[12]=1;
+		        if (form.timu92[1].checked ==1)sn[12]=0;
+		        if (form.timu93[0].checked ==1)jp[21]=0;
+		        if (form.timu93[1].checked ==1)jp[21]=1;
+
+		        
+		        
+		        var eisum=0;
+		        var snsum=0;
+		        var tfsum=0;
+		        var jpsum=0;
+		        
+
+		        var ei_reslut="";
+
+		        
+		        for(var j = 0; j < ei.length; j++) {
+		        	   eisum+=ei[j];
+		        } 		        
+		        for(var j = 0; j < sn.length; j++) {
+		        	   snsum+=sn[j];
+		        } 		        
+		        for(var j = 0; j < tf.length; j++) {
+		        	   tfsum+=tf[j];
+		        } 		        
+		        for(var j = 0; j < jp.length; j++) {
+		        	   jpsum+=jp[j];
+		        } 
+		        
+		        var e_core = eisum;
+		        var i_core = 21 - eisum;
+		        
+		        var s_core = snsum;
+		        var n_core = 26 - snsum;	
+		        
+		        var t_core = tfsum;
+		        var f_core = 24 - tfsum;
+		        
+		        var j_core = jpsum;
+		        var p_core = 22 - jpsum;
+		        
+
+		        if(e_core>i_core){
+		        	ei_reslut+="e";
+		        }else{
+		        	ei_reslut+="i";
+		        }
+		        
+		        if(s_core>n_core){
+		        	ei_reslut+="s";
+		        }else{
+		        	ei_reslut+="n";
+		        }
+		        
+		        if(t_core>f_core){
+		        	ei_reslut+="t";
+		        }else{
+		        	ei_reslut+="f";
+		        }
+		        
+		        if(j_core>p_core){
+		        	ei_reslut+="j";
+		        }else{
+		        	ei_reslut+="p";
+		        }
+		        
+		        //form.answer.value = "你的测评结果为"+ei_reslut;
+		        //form.answer1.value = "你的标准总分为";
+		        document.getElementById("mbtiresultid").innerHTML = ei_reslut;
+
+		        
+		        
+		        // 基于准备好的dom，初始化echarts实例
+		        var myChart = echarts.init(document.getElementById('testchart'));
+
+		        // 指定图表的配置项和数据
+		        var option = {
+		          tooltip : {
+		            trigger: 'axis',
+		            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		              }
+		            },
+		            legend: {
+		              data:[ '左偏移', '右偏移']
+		            },
+		            grid: {
+		              left: '3%',
+		              right: '4%',
+		              bottom: '3%',
+		              containLabel: true
+		            },
+		            xAxis : [
+		            {
+		              type : 'value'
+		            }
+		            ],
+		            yAxis : [
+		            {
+		              type : 'category',
+		              axisTick : {show: false},
+		              data : ['J-P指标','T-F指标','S-N指标','E-I指标']
+		            }
+		            ],
+		            series : [
+		            {
+		              name:'左偏移',
+		              type:'bar',
+		              stack: '总量',
+		              label: {
+		                normal: {
+		                  show: true
+		                }
+		              },
+		              data:[p_core, f_core, n_core, i_core]
+		            },
+		            {
+		              name:'右偏移',
+		              type:'bar',
+		              stack: '总量',
+		              label: {
+		                normal: {
+		                  show: true,
+		                  position: 'left'
+		                }
+		              },
+		              data:[-j_core, -t_core, -s_core, -e_core]
+		            }
+		            ]
+		          };
+
+		        // 使用刚指定的配置项和数据显示图表。
+		        myChart.setOption(option);
+		        
+		 }
+	</script>
+	
+
+</div>
+@}

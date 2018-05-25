@@ -1,0 +1,304 @@
+@layout("/DatiManage/stuDati/datiindex.html"){
+<div class="main">
+	<p align="center">
+		<b><br> 抑郁自评量表测试(SDS)</b>
+	</p>
+	<hr>
+
+	<form name="see">
+		<div align="left">
+			<span class="tip"> <big>下面有20个问题，请仔细阅读每一个，把意思弄明白，然后根据你最近一个星期的实际感觉，选择适合的答案。<br>请注意每一个问题都需要作答。<b><br>
+					<font color="green"><br> 注意：量表结果仅供参考，不能代替医生面诊！</font></b></big> <a
+				class="btn" href="javascript:;">点击</a>
+			</span>
+			<hr>
+			<table width="100%" height="346" border="0" cellpadding="10"
+				cellspacing="3">
+				<tbody id="con">
+					<tr>
+						<td>1、我觉得闷闷不乐，情绪低沉。<br> <label class="opt"><input
+								type="radio" value="1" name="c1">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="3" name="c1">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="5"
+								name="c1">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v1" name="c1">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td>2、我觉得一天中早晨最好。<br> <label class="opt"><input
+								type="radio" value="11" name="c2">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="31" name="c2">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="51"
+								name="c2">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v2" name="c2">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td>3、我一阵阵哭出来或觉得想哭。<br> <label class="opt"><input
+								type="radio" value="12" name="c3">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="32" name="c3">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="52"
+								name="c3">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v3" name="c3">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">4、我晚上睡眠不好。<br> <label class="opt"><input
+								type="radio" value="13" name="c4">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="33" name="c4">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="53"
+								name="c4">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v4" name="c4">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">5、我吃得跟平常一样多。<br> <label class="opt"><input
+								type="radio" value="14" name="c5">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="34" name="c5">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="54"
+								name="c5">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v5" name="c5">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">6、我与异性密切接触时和以往一样感到愉快。 <br> <label
+							class="opt"><input type="radio" value="15" name="c6">没有或很少时间。<br></label>
+							<label class="opt"><input type="radio" value="35"
+								name="c6">小部分时间。<br></label> <label class="opt"><input
+								type="radio" value="55" name="c6">相当多时间。<br></label> <label
+							class="opt"><input type="radio" value="v6" name="c6">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">7、我发现我的体重在下降。<br> <label class="opt"><input
+								type="radio" value="16" name="c7">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="36" name="c7">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="56"
+								name="c7">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v7" name="c7">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">8、我有便秘的苦恼。<br> <label class="opt"><input
+								type="radio" value="17" name="c8">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="37" name="c8">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="57"
+								name="c8">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v8" name="c8">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">9、我心跳比平常快。<br> <label class="opt"><input
+								type="radio" value="18" name="c9">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="38" name="c9">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="58"
+								name="c9">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v9" name="c9">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">10、我无缘无故地感到疲乏。<br> <label class="opt"><input
+								type="radio" value="19" name="c10">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="39" name="c10">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="59"
+								name="c10">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v10" name="c10">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">11、我的头脑跟平常一样清楚。<br> <label class="opt"><input
+								type="radio" value="110" name="c11">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="310" name="c11">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="510"
+								name="c11">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v11" name="c11">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">12、我觉得经常做的事情并没有困难。<br> <label
+							class="opt"><input type="radio" value="111" name="c12">没有或很少时间。<br></label>
+							<label class="opt"><input type="radio" value="311"
+								name="c12">小部分时间。<br></label> <label class="opt"><input
+								type="radio" value="511" name="c12">相当多时间。<br></label> <label
+							class="opt"><input type="radio" value="v12" name="c12">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">13、我觉得不安而平静不下来。<br> <label class="opt"><input
+								type="radio" value="112" name="c13">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="312" name="c13">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="512"
+								name="c13">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v13" name="c13">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">14、我对将来抱有希望。<br> <label class="opt"><input
+								type="radio" value="113" name="c14">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="313" name="c14">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="513"
+								name="c14">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v14" name="c14">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">15、我比平常容易生气激动。<br> <label class="opt"><input
+								type="radio" value="114" name="c15">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="314" name="c15">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="514"
+								name="c15">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v15" name="c15">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">16、我觉得作出决定是容易的。<br> <label class="opt"><input
+								type="radio" value="115" name="c16">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="315" name="c16">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="515"
+								name="c16">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v16" name="c16">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">17、我觉得自已是个有用的人，有人需要我。<br> <label
+							class="opt"><input type="radio" value="116" name="c17">没有或很少时间。<br></label>
+							<label class="opt"><input type="radio" value="316"
+								name="c17">小部分时间。<br></label> <label class="opt"><input
+								type="radio" value="516" name="c17">相当多时间。<br></label> <label
+							class="opt"><input type="radio" value="v17" name="c17">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">18、我的生活过得很有意思。<br> <label class="opt"><input
+								type="radio" value="117" name="c18">没有或很少时间。<br></label> <label
+							class="opt"><input type="radio" value="317" name="c18">小部分时间。<br></label>
+							<label class="opt"><input type="radio" value="517"
+								name="c18">相当多时间。<br></label> <label class="opt"><input
+								type="radio" value="v18" name="c18">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">19、我认为如果我死了，别人会生活得好些。<br> <label
+							class="opt"><input type="radio" value="118" name="c19">没有或很少时间。<br></label>
+							<label class="opt"><input type="radio" value="318"
+								name="c19">小部分时间。<br></label> <label class="opt"><input
+								type="radio" value="518" name="c19">相当多时间。<br></label> <label
+							class="opt"><input type="radio" value="v19" name="c19">绝大部分或全部时间。</label>
+						</td>
+					</tr>
+					<tr>
+						<td height="35">20、平常感兴趣的事我仍然照样感兴趣。<br> <label
+							class="opt"><input type="radio" value="119" name="c20">没有或很少时间。<br></label>
+							<label class="opt"><input type="radio" value="319"
+								name="c20">小部分时间。<br></label> <label class="opt"><input
+								type="radio" value="519" name="c20">相当多时间。<br></label> <label
+							class="opt"><input type="radio" value="v20" name="c20">绝大部分或全部时间。<br></label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+			<div>
+				<input onclick="processForm(this.form)" type="button"
+					value="点此看测验结果" class="sbt"><br>
+					 <input name="answer"class="answer">
+					 <input name="answer1" class="answer">
+
+				<div class="info">
+					按中国常模结果，你抑郁评定的分界值总粗分的正常上限为41分，标准分为53分，标准分低于53分，说明
+					你心理状况正常，超过标准分53分说明你有抑郁症状，分值越高，说明您的抑郁症状越严重，需要接受心理咨询
+					甚至需要在医生指导下服药。本测验为常用心理测验量表，正式量表自动显示抑郁等级指数，
+					可以帮助您诊断抑郁等级为无抑郁，轻微度,中至重度抑郁,极重度抑郁。</div>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript">
+$(document).ready(function(){
+  htmlobj=$.ajax({url:"http://localhost/mbtiTab/list",async:false});
+  $("#con").html(htmlobj.responseText);
+});
+</script>
+
+	<script language="javascript">
+    function processForm(form) {
+        var xf = xf1 = 0;
+        hc = new Array(20);
+        var roll_call = hc.length;
+        for (i = roll_call; i > 0; i--) {
+            hc[i - 1] = 1
+        }
+        ;
+        if (form.c1[1].checked == 1) hc[0] = 2;
+        if (form.c1[2].checked == 1) hc[0] = 3;
+        if (form.c1[3].checked == 1) hc[0] = 4;
+        if (form.c2[0].checked == 1) hc[1] = 4;
+        if (form.c2[1].checked == 1) hc[1] = 3;
+        if (form.c2[2].checked == 1) hc[1] = 2;
+        if (form.c3[1].checked == 1) hc[2] = 2;
+        if (form.c3[2].checked == 1) hc[2] = 3;
+        if (form.c3[3].checked == 1) hc[2] = 4;
+        if (form.c4[1].checked == 1) hc[3] = 2;
+        if (form.c4[2].checked == 1) hc[3] = 3;
+        if (form.c4[3].checked == 1) hc[3] = 4;
+        if (form.c5[0].checked == 1) hc[4] = 4;
+        if (form.c5[1].checked == 1) hc[4] = 3;
+        if (form.c5[2].checked == 1) hc[4] = 2;
+        if (form.c6[0].checked == 1) hc[5] = 4;
+        if (form.c6[1].checked == 1) hc[5] = 3;
+        if (form.c6[2].checked == 1) hc[5] = 2;
+        if (form.c7[1].checked == 1) hc[6] = 2;
+        if (form.c7[2].checked == 1) hc[6] = 3;
+        if (form.c7[3].checked == 1) hc[6] = 4;
+        if (form.c8[1].checked == 1) hc[7] = 2;
+        if (form.c8[2].checked == 1) hc[7] = 3;
+        if (form.c8[3].checked == 1) hc[7] = 4;
+        if (form.c9[1].checked == 1) hc[8] = 2;
+        if (form.c9[2].checked == 1) hc[8] = 3;
+        if (form.c9[3].checked == 1) hc[8] = 4;
+        if (form.c10[1].checked == 1) hc[9] = 2;
+        if (form.c10[2].checked == 1) hc[9] = 3;
+        if (form.c10[3].checked == 1) hc[9] = 4;
+        if (form.c11[0].checked == 1) hc[10] = 4;
+        if (form.c11[1].checked == 1) hc[10] = 3;
+        if (form.c11[2].checked == 1) hc[10] = 2;
+        if (form.c12[0].checked == 1) hc[11] = 4;
+        if (form.c12[1].checked == 1) hc[11] = 3;
+        if (form.c12[2].checked == 1) hc[11] = 2;
+        if (form.c13[1].checked == 1) hc[12] = 2;
+        if (form.c13[2].checked == 1) hc[12] = 3;
+        if (form.c13[3].checked == 1) hc[12] = 4;
+        if (form.c14[0].checked == 1) hc[13] = 4;
+        if (form.c14[1].checked == 1) hc[13] = 3;
+        if (form.c14[2].checked == 1) hc[13] = 2;
+        if (form.c15[1].checked == 1) hc[14] = 2;
+        if (form.c15[2].checked == 1) hc[14] = 3;
+        if (form.c15[3].checked == 1) hc[14] = 4;
+        if (form.c16[0].checked == 1) hc[15] = 4;
+        if (form.c16[1].checked == 1) hc[15] = 3;
+        if (form.c16[2].checked == 1) hc[15] = 2;
+        if (form.c17[0].checked == 1) hc[16] = 4;
+        if (form.c17[1].checked == 1) hc[16] = 3;
+        if (form.c17[2].checked == 1) hc[16] = 2;
+        if (form.c18[0].checked == 1) hc[17] = 4;
+        if (form.c18[1].checked == 1) hc[17] = 3;
+        if (form.c18[2].checked == 1) hc[17] = 2;
+        if (form.c19[1].checked == 1) hc[18] = 2;
+        if (form.c19[2].checked == 1) hc[18] = 3;
+        if (form.c19[3].checked == 1) hc[18] = 4;
+        if (form.c20[0].checked == 1) hc[19] = 4;
+        if (form.c20[1].checked == 1) hc[19] = 3;
+        if (form.c20[2].checked == 1) hc[19] = 2;
+        for (i = roll_call; i > 0; i--) {
+            xf += hc[i - 1]
+        }
+        ;
+        xf1 = Math.ceil(xf * 1.25);
+        xf2 = Math.ceil(xf);
+        form.answer.value = "你的总粗分为" + xf2 + "分";
+        form.answer1.value = "你的标准总分为" + xf1 + "分";
+
+    }</script>
+
+</div>
+@}

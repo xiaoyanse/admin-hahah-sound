@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stylefeng.guns.modular.system.dao.MbtiAnsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.MbtiAns">
+        <id column="id" property="id" />
+        <result column="profession" property="profession" />
+        <result column="step_1" property="step1" />
+        <result column="features" property="features" />
+        <result column="describe" property="describe" />
+        <result column="blind_spot" property="blindSpot" />
+        <result column="inferiority_1" property="inferiority1" />
+        <result column="step_2" property="step2" />
+        <result column="inferiority_2" property="inferiority2" />
+        <result column="post_style" property="postStyle" />
+        <result column="post_suitable" property="postSuitable" />
+        <result column="pdp" property="pdp" />
+        <result column="step_3" property="step3" />
+        <result column="sociality_og" property="socialityOg" />
+        <result column="structure_detail" property="structureDetail" />
+        <result column="openness_imagination" property="opennessImagination" />
+        <result column="cooperative_harmonious" property="cooperativeHarmonious" />
+        <result column="sociality" property="sociality" />
+        <result column="details" property="details" />
+        <result column="openness" property="openness" />
+        <result column="cooperative" property="cooperative" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, profession, step_1 AS step1, features, describe, blind_spot AS blindSpot, inferiority_1 AS inferiority1, step_2 AS step2, inferiority_2 AS inferiority2, post_style AS postStyle, post_suitable AS postSuitable, pdp, step_3 AS step3, sociality_og AS socialityOg, structure_detail AS structureDetail, openness_imagination AS opennessImagination, cooperative_harmonious AS cooperativeHarmonious, sociality, details, openness, cooperative
+    </sql>
+
+</mapper>
