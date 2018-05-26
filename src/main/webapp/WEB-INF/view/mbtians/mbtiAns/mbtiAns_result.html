@@ -232,7 +232,7 @@ window.onload = function() {
 	    
 	    
 	var request = new XMLHttpRequest();
-	request.open("GET", "http://localhost/mbtiAns/detail/"+arr[5]);
+	request.open("GET","/mbtiAns/detail/"+arr[5]);
 	request.send();
 	request.onreadystatechange = function() {
 		// body...
@@ -327,10 +327,5 @@ window.onload = function() {
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
       </script>
-
-
-
     </div>
-
-
     @}

@@ -23,7 +23,7 @@
 				    <p class="b-size">此图为MBTI四大变量的偏移图，由上图可得知测试者的结果类型；读表可得，测试者属于<strong id="mbtiresultid"></strong></p>
 				  </blockquote>
 				  
-				  <a id="a_getresult" href="http://localhost/mbtiAns/mbtiAns_result/1" style="float:right;color:#f98aaf" target="_blank">
+				  <a id="a_getresult" href="${ctxPath}/mbtiAns/mbtiAns_result/1" style="float:right;color:#f98aaf" target="_blank">
                         <i class="fa fa-tasks"></i> 点击查看分析报告
                     </a>
                     </div>
@@ -69,7 +69,7 @@
 	<script type="text/javascript">
 		window.onload = function() {
 			var request = new XMLHttpRequest();
-			request.open("GET", "http://localhost/mbtiTab/list");
+			request.open("GET", "${ctxPath}/mbtiTab/list");
 			request.send();
 
 			request.onreadystatechange = function() {
@@ -421,7 +421,7 @@
 		        	result_id=16;
 		        }
 		       
-		        document.getElementById("a_getresult").href="http://localhost/mbtiAns/mbtiAns_result/"+result_id;
+		        document.getElementById("a_getresult").href="${ctxPath}/mbtiAns/mbtiAns_result/"+result_id;
 
 		        document.getElementById("testscore").value = ei_reslut;
 		    	document.getElementById('testip').value = returnCitySN["cip"];
