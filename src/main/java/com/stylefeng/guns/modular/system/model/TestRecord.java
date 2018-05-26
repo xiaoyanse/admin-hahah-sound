@@ -2,7 +2,8 @@ package com.stylefeng.guns.modular.system.model;
 
 import java.io.Serializable;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
@@ -21,9 +22,14 @@ public class TestRecord extends Model<TestRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
+     * id
+     */
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
+    /**
      * 测试者姓名
      */
-    private Integer id;
+    private String name;
     /**
      * 测试名称
      */
@@ -48,6 +54,10 @@ public class TestRecord extends Model<TestRecord> {
      * 年龄
      */
     private String age;
+    /**
+     * 备注
+     */
+    private String commeee;
 
 
     public Integer getId() {
@@ -56,6 +66,14 @@ public class TestRecord extends Model<TestRecord> {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTestname() {
@@ -106,6 +124,14 @@ public class TestRecord extends Model<TestRecord> {
         this.age = age;
     }
 
+    public String getCommeee() {
+        return commeee;
+    }
+
+    public void setCommeee(String commeee) {
+        this.commeee = commeee;
+    }
+
     @Override
     protected Serializable pkVal() {
         return this.id;
@@ -115,12 +141,14 @@ public class TestRecord extends Model<TestRecord> {
     public String toString() {
         return "TestRecord{" +
         "id=" + id +
+        ", name=" + name +
         ", testname=" + testname +
         ", testscore=" + testscore +
         ", testtime=" + testtime +
         ", testip=" + testip +
         ", sex=" + sex +
         ", age=" + age +
+        ", commeee=" + commeee +
         "}";
     }
 }

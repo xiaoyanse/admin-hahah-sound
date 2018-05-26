@@ -1,5 +1,5 @@
 /**
- * test_record管理初始化
+ * testrecord管理初始化
  */
 var TestRecord = {
     id: "TestRecordTable",	//表格id
@@ -14,13 +14,15 @@ var TestRecord = {
 TestRecord.initColumn = function () {
     return [
         {field: 'selectItem', radio: true},
-            {title: '测试者姓名', field: 'id', visible: true, align: 'center', valign: 'middle'},
+            {title: 'id', field: 'id', visible: true, align: 'center', valign: 'middle'},
+            {title: '测试者姓名', field: 'name', visible: true, align: 'center', valign: 'middle'},
             {title: '测试名称', field: 'testname', visible: true, align: 'center', valign: 'middle'},
             {title: '测试分数或结果', field: 'testscore', visible: true, align: 'center', valign: 'middle'},
             {title: '测试时间', field: 'testtime', visible: true, align: 'center', valign: 'middle'},
             {title: '测试电脑ip', field: 'testip', visible: true, align: 'center', valign: 'middle'},
             {title: '测试人性别', field: 'sex', visible: true, align: 'center', valign: 'middle'},
-            {title: '年龄', field: 'age', visible: true, align: 'center', valign: 'middle'}
+            {title: '年龄', field: 'age', visible: true, align: 'center', valign: 'middle'},
+            {title: 'account账号', field: 'commeee', visible: true, align: 'center', valign: 'middle'}
     ];
 };
 
@@ -39,12 +41,12 @@ TestRecord.check = function () {
 };
 
 /**
- * 点击添加test_record
+ * 点击添加testrecord
  */
 TestRecord.openAddTestRecord = function () {
     var index = layer.open({
         type: 2,
-        title: '添加test_record',
+        title: '添加testrecord',
         area: ['800px', '420px'], //宽高
         fix: false, //不固定
         maxmin: true,
@@ -54,13 +56,13 @@ TestRecord.openAddTestRecord = function () {
 };
 
 /**
- * 打开查看test_record详情
+ * 打开查看testrecord详情
  */
 TestRecord.openTestRecordDetail = function () {
     if (this.check()) {
         var index = layer.open({
             type: 2,
-            title: 'test_record详情',
+            title: 'testrecord详情',
             area: ['800px', '420px'], //宽高
             fix: false, //不固定
             maxmin: true,
@@ -71,7 +73,7 @@ TestRecord.openTestRecordDetail = function () {
 };
 
 /**
- * 删除test_record
+ * 删除testrecord
  */
 TestRecord.delete = function () {
     if (this.check()) {
@@ -87,7 +89,7 @@ TestRecord.delete = function () {
 };
 
 /**
- * 查询test_record列表
+ * 查询testrecord列表
  */
 TestRecord.search = function () {
     var queryData = {};
@@ -97,7 +99,10 @@ TestRecord.search = function () {
 
 $(function () {
     var defaultColunms = TestRecord.initColumn();
-    var table = new BSTable(TestRecord.id, "/testRecord/list", defaultColunms);
+   // var table = new BSTable(TestRecord.id, "/testRecord/list", defaultColunms);
+	var count=document.getElementById('usercount').value;
+
+    var table = new BSTable(TestRecord.id, "/testRecord/list/"+count, defaultColunms);
     table.setPaginationType("client");
     TestRecord.table = table.init();
 });

@@ -1,4 +1,4 @@
-package com.stylefeng.guns.modular.testrecord.service;
+package com.stylefeng.guns.modular.testrecordManage.service;
 
 import com.stylefeng.guns.modular.system.model.TestRecord;
 import com.baomidou.mybatisplus.service.IService;

@@ -7,17 +7,18 @@
 
             <div class="row">
                 <div class="col-sm-6 b-r">
-                            <#input id="id" name="测试者姓名" value="${item.id}" underline="true"/>
+                            <#input id="id" name="id" value="${item.id}" underline="true"/>
+                            <#input id="name" name="测试者姓名" value="${item.name}" underline="true"/>
                             <#input id="testname" name="测试名称" value="${item.testname}" underline="true"/>
                             <#input id="testscore" name="测试分数或结果" value="${item.testscore}" underline="true"/>
                             <#input id="testtime" name="测试时间" value="${item.testtime}" />
-                            
                 </div>
 
                 <div class="col-sm-6">
-                            <#input id="testip" name="测试电脑ip" value="${item.testip}" underline="true"/>
+                            <#input id="testip" name="测试电脑ip" value="${item.testip}"  disabled="disabled" underline="true"/>
                             <#input id="sex" name="测试人性别" value="${item.sex}" underline="true"/>
-                            <#input id="age" name="年龄" value="${item.age}" />
+                            <#input id="age" name="年龄" value="${item.age}" underline="true"/>
+                            <#input id="commeee" name="备注" value="${item.commeee}" />
                 </div>
             </div>
 
@@ -31,5 +32,5 @@
 
     </div>
 </div>
-<script src="${ctxPath}/static/modular/testrecord/testRecord/testRecord_info.js"></script>
+<script src="${ctxPath}/static/modular/testrecordManage/testRecord/testRecord_info.js"></script>
 @}

@@ -1,0 +1,29 @@
+@layout("/common/_container.html"){
+
+
+<div class="row">
+<div class="col-sm-2">
+	<input id="usercount" value="${shiro.getUser().account}" type="hidden" >
+</div>
+    <div class="col-sm-8">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title" style="text-align:center">
+                <h5>测试记录</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                  
+                    <div class="col-sm-12">
+                        <#table id="TestRecordTable"/>
+                    </div>                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+    
+</div>
+<script src="${ctxPath}/static/modular/testrecordManage/testRecord/testRecord.js"></script>
+
+@}

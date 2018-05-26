@@ -4,6 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.stylefeng.guns.modular.system.model.TestRecord">
+        <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="testname" property="testname" />
         <result column="testscore" property="testscore" />
@@ -11,11 +12,12 @@
         <result column="testip" property="testip" />
         <result column="sex" property="sex" />
         <result column="age" property="age" />
+        <result column="commeee" property="commeee" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        name, testname, testscore, testtime, testip, sex, age
+        id, name, testname, testscore, testtime, testip, sex, age, commeee
     </sql>
 
 </mapper>

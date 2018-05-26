@@ -27,14 +27,14 @@ MbtiAns.initColumn = function () {
             {title: '适合的岗位', field: 'postSuitable', visible: true, align: 'center', valign: 'middle'},
             {title: '个人发展建议', field: 'pdp', visible: true, align: 'center', valign: 'middle'},
             {title: '工作环境分析报告', field: 'step3', visible: true, align: 'center', valign: 'middle'},
-            {title: '组织的社会性', field: 'socialityOg', visible: true, align: 'center', valign: 'middle'},
+/*            {title: '组织的社会性', field: 'socialityOg', visible: true, align: 'center', valign: 'middle'},
             {title: '组织的结构和细节关注度', field: 'structureDetail', visible: true, align: 'center', valign: 'middle'},
             {title: '组织的开放性和想象力', field: 'opennessImagination', visible: true, align: 'center', valign: 'middle'},
-            {title: '对组织的合作性和和谐型', field: 'cooperativeHarmonious', visible: true, align: 'center', valign: 'middle'},
-            {title: '对组织社会性的要求', field: 'sociality', visible: true, align: 'center', valign: 'middle'},
+            {title: '对组织的合作性和和谐型', field: 'cooperativeHarmonious', visible: true, align: 'center', valign: 'middle'},*/
+    /*        {title: '对组织社会性的要求', field: 'sociality', visible: true, align: 'center', valign: 'middle'},
             {title: '对组织及对细节的关注度要求高', field: 'details', visible: true, align: 'center', valign: 'middle'},
             {title: '对组织的开放性和想象力要求', field: 'openness', visible: true, align: 'center', valign: 'middle'},
-            {title: '对组织的合作性和和谐型要求', field: 'cooperative', visible: true, align: 'center', valign: 'middle'}
+            {title: '对组织的合作性和和谐型要求', field: 'cooperative', visible: true, align: 'center', valign: 'middle'}*/
     ];
 };
 

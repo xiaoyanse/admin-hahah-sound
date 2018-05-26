@@ -7,11 +7,11 @@
     <p class="warning b-size">本报告为老颜独家生成，如有雷同，幸会幸会。本报告只作为参考使用，不可作为诊断凭证，请大家如有疑惑，及时就诊就医，望体隆安</p>
   </blockquote> 
   <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-  <div id="main22" style="width: 700px;height:500px;"></div>
+<!--   <div id="main22" style="width: 700px;height:500px;"></div>
   
   <blockquote>
     <p class="b-size">此图为MBTI四大变量的偏移图，由上图可得知测试者的结果类型；读表可得，测试者属于<strong>estj</strong></p>
-  </blockquote>
+  </blockquote> -->
   <div>
     <hr>    
     
@@ -224,8 +224,15 @@
 </div>
 <script type="text/javascript">
 window.onload = function() {
+	
+	 var value;
+	   var str=location.href; //取得整个地址栏
+	   var arr=str.split("/"); //各个参数放到数组里
+	    console.log(arr[5])
+	    
+	    
 	var request = new XMLHttpRequest();
-	request.open("GET", "http://localhost/mbtiAns/detail/1");
+	request.open("GET", "http://localhost/mbtiAns/detail/"+arr[5]);
 	request.send();
 	request.onreadystatechange = function() {
 		// body...

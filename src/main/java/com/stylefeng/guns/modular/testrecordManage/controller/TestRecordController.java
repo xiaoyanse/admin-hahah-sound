@@ -1,5 +1,7 @@
-package com.stylefeng.guns.modular.testrecord.controller;
+package com.stylefeng.guns.modular.testrecordManage.controller;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.stylefeng.guns.core.base.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,35 +10,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.stylefeng.guns.core.log.LogObjectHolder;
+import com.stylefeng.guns.core.util.ToolUtil;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import com.stylefeng.guns.modular.system.model.TestRecord;
-import com.stylefeng.guns.modular.testrecord.service.ITestRecordService;
+import com.stylefeng.guns.modular.system.model.Timu;
+import com.stylefeng.guns.modular.testrecordManage.service.ITestRecordService;
 
 /**
- * test_record控制器
+ * testrecord控制器
  *
  * @author fengshuonan
- * @Date 2018-05-26 00:23:19
+ * @Date 2018-05-26 02:02:35
  */
 @Controller
 @RequestMapping("/testRecord")
 public class TestRecordController extends BaseController {
 
-    private String PREFIX = "/testrecord/testRecord/";
+    private String PREFIX = "/testrecordManage/testRecord/";
 
     @Autowired
     private ITestRecordService testRecordService;
 
     /**
-     * 跳转到test_record首页
+     * 跳转到testrecord首页
      */
     @RequestMapping("")
     public String index() {
         return PREFIX + "testRecord.html";
     }
+    /**
+     * 跳转到usertestrecord首页
+     */
+    @RequestMapping("/usertestrecord")
+    public String userindex() {
+        return PREFIX + "usertestrecord.html";
+    }
 
     /**
-     * 跳转到添加test_record
+     * 跳转到添加testrecord
      */
     @RequestMapping("/testRecord_add")
     public String testRecordAdd() {
@@ -44,7 +56,7 @@ public class TestRecordController extends BaseController {
     }
 
     /**
-     * 跳转到修改test_record
+     * 跳转到修改testrecord
      */
     @RequestMapping("/testRecord_update/{testRecordId}")
     public String testRecordUpdate(@PathVariable Integer testRecordId, Model model) {
@@ -55,16 +67,35 @@ public class TestRecordController extends BaseController {
     }
 
     /**
-     * 获取test_record列表
+     * 获取testrecord列表
      */
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(String condition) {
         return testRecordService.selectList(null);
     }
+    
+    
+    /**
+     * 根据name获取题目管理列表
+     */
+    @RequestMapping(value = "/list/{commeee}")
+    @ResponseBody
+    public Object listbyshitino(@PathVariable String commeee) {
+		System.out.println("commeee账号:"+commeee);
+
+    	if (ToolUtil.isEmpty(commeee)) {
+            return testRecordService.selectList(null);
+		}else {
+			EntityWrapper<TestRecord> wrapper=new EntityWrapper<>();
+			Wrapper<TestRecord> result=wrapper.where("commeee='"+commeee+"'");
+			return testRecordService.selectList(result);	 
+		}
+    }
+
 
     /**
-     * 新增test_record
+     * 新增testrecord
      */
     @RequestMapping(value = "/add")
     @ResponseBody
@@ -74,7 +105,7 @@ public class TestRecordController extends BaseController {
     }
 
     /**
-     * 删除test_record
+     * 删除testrecord
      */
     @RequestMapping(value = "/delete")
     @ResponseBody
@@ -84,7 +115,7 @@ public class TestRecordController extends BaseController {
     }
 
     /**
-     * 修改test_record
+     * 修改testrecord
      */
     @RequestMapping(value = "/update")
     @ResponseBody
@@ -94,7 +125,7 @@ public class TestRecordController extends BaseController {
     }
 
     /**
-     * test_record详情
+     * testrecord详情
      */
     @RequestMapping(value = "/detail/{testRecordId}")
     @ResponseBody

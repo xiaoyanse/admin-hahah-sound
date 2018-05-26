@@ -1,8 +1,8 @@
-package com.stylefeng.guns.modular.testrecord.service.impl;
+package com.stylefeng.guns.modular.testrecordManage.service.impl;
 
 import com.stylefeng.guns.modular.system.model.TestRecord;
 import com.stylefeng.guns.modular.system.dao.TestRecordMapper;
-import com.stylefeng.guns.modular.testrecord.service.ITestRecordService;
+import com.stylefeng.guns.modular.testrecordManage.service.ITestRecordService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

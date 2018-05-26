@@ -2817,6 +2817,9 @@
             <input onclick="processForm(this.form)" type="button" value="点此看测试结果" class="sbt">
             <br>
             <input class="answer" name="answer">
+            <br>
+            <div id="testchart" style="width: 700px;height:500px;display:none" ></div>
+            <br>
             <div style="width: 760px;margin-left: auto;margin-right: auto;padding-left: 15px;">
                 <input class="answer1" name="answer2">
                 <input class="answer1" name="answer3">
@@ -2835,6 +2838,44 @@
             </div>
         </div>
     </form>
+    
+    
+    	<div style="display:none" class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <input type="hidden" id="id" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="id" underline="true"/>
+                            <#input id="name" name="测试者姓名"  value="${shiro.getUser().name}"  underline="true"/>
+                            <#input id="testname" name="测试名称"  value="SCL-90"  underline="true"/>
+                            <#input id="testscore" name="测试分数或结果"  underline="true"/>
+                            <#input id="testtime" name="" type="hidden"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="testip" name="测试电脑ip" underline="true" disabled="disabled"/>
+                            <#input id="sex" name="测试人性别" underline="true"/>
+                            <#input id="age" name="年龄" underline="true" />
+                            <#input id="commeee" name="account账号" underline="true" value="${shiro.getUser().account}" disabled="disabled"/>
+                </div>
+            </div>
+            
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="TestRecordInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="TestRecordInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/testrecordManage/testRecord/testRecord_info.js"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
+    
 
 
     <script language="javascript">
@@ -3367,7 +3408,68 @@
             form.answer9.value = "偏执症状" + pz + "分" + "均分" + pz1;
             form.answer10.value = "饮食睡眠" + qita + "分" + "均分" + qita1;
             form.answer11.value = "精神症状" + jsb + "分" + "均分" + jsb1;
+            
+	        document.getElementById("testscore").value = xf2;
+	    	document.getElementById('testip').value = returnCitySN["cip"];
+
+	        TestRecordInfoDlg.addSubmit();
+	        document.getElementById("testchart").style.display ="block"; 
+            
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('testchart'));
+
+            // 指定图表的配置项和数据
+            var option = {
+            	    title: {
+            	        text: '基础雷达图'
+            	    },
+            	    tooltip: {},
+            	    legend: {
+            	        data: ['你的得分','警戒线']
+            	    },
+            	    radar: {
+            	        // shape: 'circle',
+            	        name: {
+            	            textStyle: {
+            	                color: '#fff',
+            	                backgroundColor: '#999',
+            	                borderRadius: 3,
+            	                padding: [3, 5]
+            	           }
+            	        },
+            	        indicator: [
+            	           { name: '躯体化分', max: 3},
+            	           { name: '强迫症状', max: 3},
+            	           { name: '人际敏感', max: 3},
+            	           { name: '抑郁症状', max: 3},
+            	           { name: '焦虑症状', max: 3},
+            	           { name: '敌对症状', max: 3},  	           
+            	           { name: '恐怖症状', max: 3},
+            	           { name: '偏执症状', max: 3},
+            	           { name: '饮食睡眠', max: 3},
+            	           { name: '精神症状', max: 3}
+            	        ]
+            	    },
+            	    series: [{
+            	        name: '预算 vs 开销（Budget vs spending）',
+            	        type: 'radar',
+            	        // areaStyle: {normal: {}},
+            	        data : [
+            	            {
+            	                value : [qth1, qpz1, rjmg1, yiyu1, jiaolv1, didui1,kongbu1,pz1,qita1,jsb1],
+            	                name : '你的得分'
+            	            },
+            	             {
+            	                value : [2, 2, 2, 2, 2, 2,2,2,2,2],
+            	                name : '警戒值'
+            	            }
+            	        ]
+            	    }]
+            	};
+            myChart.setOption(option);
         }
+        
+
     </script>
 </div>
 
